@@ -31,7 +31,7 @@ const UserList: React.FC = () => {
   if (error) return <Alert color="red">Error fetching data</Alert>;
 
   return (
-    <SimpleGrid cols={3} spacing="lg">
+    <SimpleGrid cols={{ base: 2, md: 3 }} spacing="lg">
       {data?.map((user) => (
         <UserCard key={user.id} user={user} />
       ))}

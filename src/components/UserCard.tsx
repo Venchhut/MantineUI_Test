@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, Text, Badge, Group, Slider } from "@mantine/core";
-import { useHover } from "@mantine/hooks";
+import { Card, Text, Badge, Group } from "@mantine/core";
 
 interface UserCardProps {
   user: {
@@ -15,7 +14,6 @@ interface UserCardProps {
 }
 
 const UserCard: React.FC<UserCardProps> = ({ user }) => {
-  const { hovered, ref } = useHover();
   return (
     <>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
@@ -28,19 +26,6 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
         </Text>
         <Text size="sm">{user.address.city}</Text>
       </Card>
-      <Slider
-        defaultValue={40}
-        min={10}
-        max={90}
-        ref={ref}
-        label={null}
-        styles={{
-          thumb: {
-            transition: "opacity 150ms ease",
-            opacity: hovered ? 1 : 0,
-          },
-        }}
-      />
     </>
   );
 };
