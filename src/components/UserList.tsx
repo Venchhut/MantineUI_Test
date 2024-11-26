@@ -1,8 +1,9 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { SimpleGrid, Loader, Alert } from "@mantine/core";
+import { SimpleGrid, Loader, Alert, NavLink, Pagination } from "@mantine/core";
 import axios from "axios";
 import UserCard from "./UserCard";
+import { IconFingerprint, IconGauge } from "@tabler/icons-react";
 
 interface User {
   id: number;
@@ -31,11 +32,41 @@ const UserList: React.FC = () => {
   if (error) return <Alert color="red">Error fetching data</Alert>;
 
   return (
-    <SimpleGrid cols={{ base: 2, md: 3 }} spacing="lg">
-      {data?.map((user) => (
-        <UserCard key={user.id} user={user} />
-      ))}
-    </SimpleGrid>
+    <>
+      <NavLink
+        href="#required-for-focus"
+        label="profile detail"
+        leftSection={<IconGauge size="1rem" stroke={1.5} />}
+        childrenOffset={28}
+      >
+        <NavLink href="#required-for-focus" label="First child link" />
+        <NavLink label="Second child link" href="#required-for-focus" />
+        <NavLink
+          label="Nested parent link"
+          childrenOffset={28}
+          href="#required-for-focus"
+        >
+          <NavLink label="First child link" href="#required-for-focus" />
+          <NavLink label="Second child link" href="#required-for-focus" />
+          <NavLink label="Third child link" href="#required-for-focus" />
+        </NavLink>
+      </NavLink>
+      <NavLink
+        href="#required-for-focus"
+        label="Save"
+        leftSection={<IconFingerprint size="1rem" stroke={1.5} />}
+        childrenOffset={28}
+        defaultOpened
+      >
+        <NavLink label="First child link" href="#required-for-focus" />
+        <NavLink label="Second child link" href="#required-for-focus" />
+        <NavLink label="Third child link" href="#required-for-focus" />
+      </NavLink>
+      <SimpleGrid cols={{ base: 2, md: 4 }} spacing="lg">
+        {data?.map((user) => <UserCard key={user.id} user={user} />)}
+      </SimpleGrid>
+      <Pagination total={10} />;
+    </>
   );
 };
 
