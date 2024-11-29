@@ -7,7 +7,11 @@ import UserList from "./components/UserList";
 
 import StepperTest from "./components/Stepper";
 import LayoutTest from "./components/LayoutTest";
-import ExampleWithProviders from "./components/CRUD/crud";
+import ExampleWithProviders from "./components/CRUD/Crud";
+import AppShellTest from "./components/AppShellTest";
+import LayoutTable from "./components/LayoutTable";
+import ModalTest from "./components/ModalTest";
+
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
@@ -15,12 +19,14 @@ const App: React.FC = () => {
     <QueryClientProvider client={queryClient}>
       <MantineProvider>
         <Container>
+          <AppShellTest />
           <h1>User List</h1>
           <UserList />
           <Example />
           <StepperTest />
           <LayoutTest />
           <ExampleWithProviders />
+          <LayoutTable />
         </Container>
       </MantineProvider>
     </QueryClientProvider>

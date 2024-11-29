@@ -97,7 +97,25 @@ const Example = () => {
 
   const table = useMantineReactTable({
     columns,
-    data, //must be memoized or stable (useState, useMemo, defined outside of this component, etc.)
+    data,
+    enableColumnActions: false,
+    enablePagination: true,
+    mantineTableProps: {
+      withColumnBorders: true,
+      withRowBorders: true,
+
+      style: {
+        "thead > tr": {
+          backgroundColor: "inherit",
+        },
+        "thead > tr > th": {
+          backgroundColor: "blue",
+        },
+        "tbody > tr > td": {
+          backgroundColor: "inherit",
+        },
+      },
+    },
   });
 
   return <MantineReactTable table={table} />;
