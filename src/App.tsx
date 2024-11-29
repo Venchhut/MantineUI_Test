@@ -10,7 +10,6 @@ import LayoutTest from "./components/LayoutTest";
 import ExampleWithProviders from "./components/CRUD/Crud";
 import AppShellTest from "./components/AppShellTest";
 import LayoutTable from "./components/LayoutTable";
-import ModalTest from "./components/ModalTest";
 
 const queryClient = new QueryClient();
 
